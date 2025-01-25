@@ -13,11 +13,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 20.11.0
-        cache: 'npm'
+        cache: 'yarn'
     - name: install packages
-      run: npm install
+      run: yarn install --frozen-lockfile
     - name: build
-      run: npm run build
+      run: yarn build
     - name: upload dist
       uses: actions/upload-artifact@v4
       with: 
@@ -34,11 +34,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 20.11.0
-        cache: 'npm'
+        cache: 'yarn'
     - name: install packages
-      run: npm ci
+      run: yarn install --frozen-lockfile
     - name: build
-      run: npm run test:unit
+      run: yarn test
   deploy:
     name: deploy
     needs: [build, test]
