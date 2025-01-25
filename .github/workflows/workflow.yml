@@ -1,9 +1,5 @@
 name: Vite
 on:
-  push:
-    branches: [ "main", "prod" ]
-  pull_request:
-    branches: [ "main", "prod" ]
   workflow_dispatch:
 
 jobs:
