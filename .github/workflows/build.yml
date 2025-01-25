@@ -17,7 +17,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.11.0
-          cache: 'yarn'
+          cache: 'yarn'         
+      - name: Clean Yarn Cache
+        run: yarn cache clean
       - name: install packages
         run: yarn install --frozen-lockfile
       - name: build
