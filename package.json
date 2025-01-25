@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
+    "watch": "vite build -d --watch",
     "preview": "vite preview",
     "test": "vitest",
     "build-only": "vite build",
