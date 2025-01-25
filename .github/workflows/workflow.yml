@@ -19,14 +19,14 @@ jobs:
         node-version: 20.11.0
         cache: 'npm'
     - name: install packages
-      run: npm ci
+      run: npm install
     - name: build
       run: npm run build
     - name: upload dist
       uses: actions/upload-artifact@v4
       with: 
         name: dist
-        path: /dist
+        path: dist/
         if-no-files-found: error
   test:
     name: test
