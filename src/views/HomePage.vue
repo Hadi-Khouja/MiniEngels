@@ -11,7 +11,6 @@
       cover
     ></v-carousel-item>
   </v-carousel>
-  <p class="text-h5 ma-4">GRK</p>
   <p class="mx-8 mb-8 text-start">
     Lorem ipsum odor amet, consectetuer adipiscing elit. Nascetur ex ac penatibus finibus fames
     primis neque quam urna. Adipiscing ornare parturient torquent; nulla ornare varius risus dui.

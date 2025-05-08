@@ -7,7 +7,7 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/ReMPro',
+  base: '/ReMPro/',
   plugins: [
     vue({
       template: {

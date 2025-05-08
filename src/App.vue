@@ -11,10 +11,6 @@
         <v-img :src="logo" :max-height="60" :max-width="200" :position="'left'"></v-img>
       </v-app-bar-title>
 
-      <template #append>
-        <v-btn class="mr-2" icon="mdi-magnify" :variant="'text'"></v-btn>
-      </template>
-
       <template #extension>
         <div class="h-auto">
           <v-tabs class="d-none d-sm-none d-md-flex" align-tabs="title" :color="'secondary'">
@@ -52,12 +48,6 @@ const drawer = ref(false);
 const { smAndDown } = useDisplay();
 
 const routes = [
-  { title: 'Home', to: { name: 'HOME' } },
-  { title: 'Research', to: { name: 'RESEARCH' } },
-  { title: 'Publications', to: { name: 'PUBLICATIONS' } },
-  { title: 'News', to: { name: 'NEWS' } },
-  { title: 'Events', to: { name: 'EVENTS' } },
-  { title: 'Career', to: { name: 'CAREER' } },
-  { title: 'Training', to: { name: 'TRAINING' } },
+  { title: 'Home', to: { name: 'HOME' } }
 ];
 </script>
