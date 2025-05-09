@@ -8,7 +8,7 @@
       </template>
 
       <v-app-bar-title>
-        <v-img :src="logo" :max-height="60" :max-width="200" :position="'left'"></v-img>
+        <v-img :src="logo" :width="100" :height="60" :max-height="150" :max-width="200" :position="'left'"></v-img>
       </v-app-bar-title>
 
       <template #extension>
@@ -41,7 +41,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { RouterView } from 'vue-router';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo.svg';
 import { useDisplay } from 'vuetify';
 
 const drawer = ref(false);
