@@ -1,26 +1,14 @@
 <style scoped></style>
 
 <template>
-  <v-carousel>
-    <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/docks.jpg" cover></v-carousel-item>
-
-    <v-carousel-item src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg" cover></v-carousel-item>
-
-    <v-carousel-item
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-      cover
-    ></v-carousel-item>
-  </v-carousel>
-  <v-form id="form">
+  <v-form id="form" class="ma-6">
         <v-text-field 
             label="email"
             v-model="email"
             variant="filled"
             id="user"
-            class="mb-3"
             :autocomplete="'username'"
             ref="usernamefield"
-            color="primary"
             :readonly="userNameEntered"
             type="email"
             autofocus
@@ -40,7 +28,6 @@
               id="changeUserName"
               variant="text"
               @click="userNameEntered=false; password=''"
-              color="primary"
               :text="'change'"
             ></v-btn>
           </template>
@@ -49,16 +36,13 @@
           v-show="userNameEntered"
           :type="showPassword ? 'text' : 'password'"
           :label="'password'"
-          placeholder=""
           v-model="password"
           variant="filled"
           hide-details="auto"
-          :error-messages="errormessage"
           id="password"
           class="mb-2"
           :autocomplete="'current-password'"
           ref="passwordfield"
-          color="primary"
           autofocus
           name="password"
         >
@@ -89,7 +73,6 @@ const password = ref('');
 const showPassword = ref(false);
 const userNameEntered = ref(false);
 const isProcessingUsername = ref(false);
-const errormessage = ref(''); 
 
 
 function userNameEnteredHandler(event: Event) {
