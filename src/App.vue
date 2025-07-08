@@ -1,85 +1,53 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<style scoped></style>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <v-app>
+    <v-app-bar :elevation="2" :extension-height="smAndDown ? 0 : 48">
+      <template #prepend>
+        <v-app-bar-nav-icon class="d-md-none" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      </template>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <v-app-bar-title>
+        <v-img :src="logo" :width="100" :height="60" :max-height="150" :max-width="200" :position="'left'"></v-img>
+      </v-app-bar-title>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+      <template #extension>
+        <div class="h-auto">
+          <v-tabs class="d-none d-sm-none d-md-flex" align-tabs="title" :color="'secondary'">
+            <v-tab v-for="item of routes" :text="item.title" :to="item.to"></v-tab>
+          </v-tabs>
+        </div>
+      </template>
+    </v-app-bar>
 
-  <RouterView />
+    <v-navigation-drawer v-model="drawer" temporary>
+      <v-list>
+        <v-list-item v-for="item of routes" :title="item.title" :to="item.to"></v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-main>
+      <RouterView></RouterView>
+    </v-main>
+
+    <v-footer class="ga-4" color="secondary">
+      <v-icon icon="mdi-facebook"></v-icon>
+      <v-icon icon="mdi-instagram"></v-icon>
+      <v-icon icon="mdi-twitter"></v-icon>
+    </v-footer>
+  </v-app>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+<script setup lang="ts">
+import { ref } from 'vue';
+import { RouterView } from 'vue-router';
+import logo from '@/assets/logo.svg';
+import { useDisplay } from 'vuetify';
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+const drawer = ref(false);
+const { smAndDown } = useDisplay();
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+const routes = [
+  { title: 'Home', to: { name: 'HOME' } }
+];
+</script>
